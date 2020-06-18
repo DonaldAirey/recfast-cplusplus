@@ -18,7 +18,6 @@
 #include "cosmology.Recfast.h"
 #include "constants.Recfast.h"
 #include "evalode.Recfast.h"
-#include "DM_annihilation.Recfast.h"
 
 using namespace std;
 using namespace RECFAST_physical_constants; // defined in constants.Recfast.h
@@ -160,12 +159,6 @@ void evaluate_Recfast_System(double z, double y[], double fvec[], int n)
     fvec[1] = (alphaH* xe*xp  *nHTot - betaH *(1.0-xp  )*BH )*CH /((1.0+z)*Hz);
     fvec[2] = Comp*xe/(1.0+xe+fHe)*(TM-TR) + 2.0*TM/(1.0+z);
     
-    //====================================================================================
-    // add terms due to DM annihilation
-    //====================================================================================
-    if(input.fDM!=0.0) 
-        evaluate_DM_annihilation_terms(z, Hz, fHe, xp, xHep, CHe, CH, input.fDM, fvec);
-        
     return;
 }
 

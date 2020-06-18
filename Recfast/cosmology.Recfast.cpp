@@ -26,16 +26,15 @@ extern struct Input input;
 //========================================================================================
 double H_z(double z)
 {
-  double Fnu, Zeq, z1=1.0+z;
+  //double Fnu, Zeq, z1=1.0+z;
   
-  Fnu = input.Nnu*(7.0/8.0)*pow(4.0/11.0, 4.0/3.0); 
-  Zeq = 3.0*pow(input.H0*RF_cLight, 2)
-           /(8.0*RF_PI*RF_G*RF_aRad*(1.0+Fnu))
-          /(pow(input.To,4))*input.OmegaM-1.0;
+  //Fnu = input.Nnu*(7.0/8.0)*pow(4.0/11.0, 4.0/3.0); 
+  //Zeq = 3.0*pow(input.H0*RF_cLight, 2)
+  //         /(8.0*RF_PI*RF_G*RF_aRad*(1.0+Fnu))
+  //        /(pow(input.To,4))*input.OmegaM-1.0;
 
-  return input.H0*sqrt(input.OmegaL+pow(z1, 2)
-                       *(input.OmegaK+z1*input.OmegaM*(1.0+z1/(1.0+Zeq)) ) );
-//	return 2 / sqrt(pow(RF_age, 2.0) / (1 + z));
+  //return input.H0*sqrt(input.OmegaL+pow(z1, 2)*(input.OmegaK+z1*input.OmegaM*(1.0+z1/(1.0+Zeq)) ) );
+  return 2 * sqrt(1 + z) / RF_age;
 }
 
 //========================================================================================
@@ -43,8 +42,11 @@ double H_z(double z)
 //========================================================================================
 double NH(double z) 
 {
-  double mu_H=1.0/(1.0-input.YP);
-  return 3.0*pow(input.H0, 2)*input.OmegaB/(8.0*RF_PI*RF_G*RF_mHatom*mu_H)*pow(1.0+z, 3);
+  //double mu_H = 1.0 / (1.0 - input.YP);
+  //return 3.0 * pow(input.H0, 2) * input.OmegaB / (8.0 * RF_PI * RF_G * RF_mHatom * mu_H) * pow(1.0 + z, 3);
+  double baryonDensity = 4.97851E-27;
+  double numberDensity = baryonDensity * (1.0 - input.YP) / RF_mHatom;
+  return numberDensity * pow(1.0 + z, 3);
 }
 
 //========================================================================================

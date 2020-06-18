@@ -21,9 +21,6 @@
     <ClInclude Include="include\cosmology.Recfast.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\DM_annihilation.Recfast.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="include\evalode.Recfast.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -39,9 +36,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="cosmology.Recfast.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="DM_annihilation.Recfast.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="evalode.Recfast.cpp">

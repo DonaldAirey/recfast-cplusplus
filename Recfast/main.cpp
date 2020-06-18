@@ -124,8 +124,8 @@ int main(int narg, char *args[])
     // reading parameters
     //====================================================================================
     vector<double> params(14);
-    int npz=10000;
-    double zstart=3000.0, zend=0.001;
+    int npz=1000;
+    double zstart=3500.0, zend=0.000;
     
     params[0]=npz;
     params[1]=zstart;
@@ -145,13 +145,8 @@ int main(int narg, char *args[])
     //====================================================================================
     Xe_frac(&params[0], &zarr[0], &Xe_H[0], &Xe_He[0], &Xe[0], &TM[0]);
     
-    string oname="./output/Xe_Recfast";
-    if(params[12]!=0.0) oname+=".DM_annihilations";
-    if(params[13]==1) oname+=".Rec_corrs_CT2010";
-    oname+=".dat";
-    
+    string oname="./output/Xe_Recfast.dat";
     write_Recfast_output(oname, zarr, Xe_H, Xe_He, Xe, TM);
-
     if(verbose) cout << " Recfast++ :: Run completed. Exiting. " << endl;
 
     return 0;
