@@ -71,11 +71,11 @@ void read_parameter_file(string fname, vector<double> &params)
     ifile >> params[9];  // h100
     ifile >> params[10]; // effective number of neutrinos 
     ifile >> params[11]; // fudge-factor; normally F=1.14
-    
     ifile >> params[12]; // fDM [eV/s] which gives annihilation efficiency; 
                          // typical value fDM=2.0e-24 eV/s (see Chluba 2010 for definitions)
     ifile >> params[13]; // switch on/off recombination corrections (Chluba & Thomas 2010)
-
+    ifile >> params[14]; // Universe age (s)
+    ifile >> params[15]; // Baryon Density (kg m-2)
 
     //====================================================================================
     // compute Omega_L according to Omega_K
@@ -102,7 +102,7 @@ void write_Recfast_output(string oname, vector<double> &zarr, vector<double> &Xe
     ofile.precision(8);
     
     for(int i=0; i<(int)zarr.size(); i++)
-        ofile << zarr[i] << "\t" << Xe[i] << "\t" << Xe_H[i] << "\t" << Xe_He[i] << "\t" << TM[i] << endl;
+        ofile << zarr[i] << "\t" << Xe[i] << endl;
         
     return;
 }
@@ -123,9 +123,9 @@ int main(int narg, char *args[])
     //====================================================================================
     // reading parameters
     //====================================================================================
-    vector<double> params(14);
-    int npz=1000;
-    double zstart=3500.0, zend=0.000;
+    vector<double> params(16);
+    int npz=250;
+    double zstart=3000.0, zend=0.000;
     
     params[0]=npz;
     params[1]=zstart;

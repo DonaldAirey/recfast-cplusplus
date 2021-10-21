@@ -62,7 +62,7 @@ double SahaBoltz_HeII(double nH, double fHe, double T)
 //========================================================================================
 // functions to communicate with cosmology object
 //========================================================================================
-int Xe_frac(double params[14], double *zarr, double *Xe_H, 
+int Xe_frac(double params[16], double *zarr, double *Xe_H, 
             double *Xe_He, double *Xe, double *TM, int mflag)
 {
   int flg;
@@ -81,7 +81,7 @@ int Xe_frac(double params[14], double *zarr, double *Xe_H,
 //========================================================================================
 // functions to communicate with cosmology object
 //========================================================================================
-int Xe_frac(double params[14], double *zarr, double *Xe_H, double *Xe_He, 
+int Xe_frac(double params[16], double *zarr, double *Xe_H, double *Xe_He, 
             double *Xe, double *dXe, double *TM, int mflag)
 {
   int flg;
@@ -99,7 +99,7 @@ int Xe_frac(double params[14], double *zarr, double *Xe_H, double *Xe_He,
 //========================================================================================
 // main functions
 //========================================================================================
-void Set_input_variables(double params[14])
+void Set_input_variables(double params[16])
 {
     double fHe= params[3]/(4.0*RF_fac_mHemH*(1.0-params[3]));
 
@@ -118,7 +118,8 @@ void Set_input_variables(double params[14])
     
     input.fDM=params[12];
     input.switch_on_recombination_corrs=(int)params[13];
-    
+    input.age = params[14];
+    input.baryonDensity = params[15];
     input.H0 = params[9]*100.0*1.0e+5/RF_Mpc;
     input.fHe=fHe;  
     
@@ -128,7 +129,7 @@ void Set_input_variables(double params[14])
 //========================================================================================
 // compute ionization history like in Recfast-module
 //========================================================================================
-int Xe_frac(double params[14], double *zarr, double *Xe_H, double *Xe_He, double *Xe, 
+int Xe_frac(double params[16], double *zarr, double *Xe_H, double *Xe_He, double *Xe, 
             double *dXe, double *dX_H, double *TM, int mflag)
 {
     //====================================================================================
@@ -286,7 +287,7 @@ int Xe_frac(double params[14], double *zarr, double *Xe_H, double *Xe_He, double
 // zarr contains the points at which the solution should be obtained
 // rescaling of f_Xe from initial condition is used; For this dXei is needed
 //========================================================================================
-int Xe_frac_rescaled(double params[14], const double *zarr, double *Xe_H, 
+int Xe_frac_rescaled(double params[16], const double *zarr, double *Xe_H, 
                      double *Xe_He, double *Xe, double *TM, 
                      double Xe_Hi, double Xe_Hei, double Xei, double TMi, double dXei,
                      int mflag)

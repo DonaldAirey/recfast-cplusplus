@@ -24,8 +24,10 @@ struct Input
     double H0;
     double h100;
     double Nnu;     // effective number of neutrinos
-    //
     double fDM;
+    double age;
+    double baryonDensity;
+
     int switch_on_recombination_corrs;
 };
 
