@@ -102,7 +102,7 @@ void write_Recfast_output(string oname, vector<double> &zarr, vector<double> &Xe
     ofile.precision(8);
     
     for(int i=0; i<(int)zarr.size(); i++)
-        ofile << zarr[i] << "\t" << Xe[i] << "\t" << Xe_H[i] << "\t" << Xe_He[i] << "\t" << TM[i] << endl;
+        ofile << zarr[i] << "\t" << Xe[i] << endl;
         
     return;
 }
@@ -124,8 +124,8 @@ int main(int narg, char *args[])
     // reading parameters
     //====================================================================================
     vector<double> params(14);
-    int npz=1000;
-    double zstart=3500.0, zend=0.000;
+    int npz=250;
+    double zstart=3000.0, zend=0.000;
     
     params[0]=npz;
     params[1]=zstart;
