@@ -32,9 +32,10 @@ double H_z(double z)
   //Zeq = 3.0*pow(input.H0*RF_cLight, 2)
   //         /(8.0*RF_PI*RF_G*RF_aRad*(1.0+Fnu))
   //        /(pow(input.To,4))*input.OmegaM-1.0;
-
   //return input.H0*sqrt(input.OmegaL+pow(z1, 2)*(input.OmegaK+z1*input.OmegaM*(1.0+z1/(1.0+Zeq)) ) );
-  return 2 * sqrt(1 + z) / RF_age;
+  
+  // Note: this algorithm assumes that H = 1/t.
+  return sqrt(1 + z) / RF_age;
 }
 
 //========================================================================================
@@ -44,7 +45,7 @@ double NH(double z)
 {
   //double mu_H = 1.0 / (1.0 - input.YP);
   //return 3.0 * pow(input.H0, 2) * input.OmegaB / (8.0 * RF_PI * RF_G * RF_mHatom * mu_H) * pow(1.0 + z, 3);
-  double baryonDensity = 1.91922E-27;
+  double baryonDensity = 1.92E-27;
   double numberDensity = baryonDensity * (1.0 - input.YP) / RF_mHatom;
   return numberDensity * pow(1.0 + z, 3);
 }
