@@ -47,7 +47,7 @@ double NH(double z)
 {
   //double mu_H = 1.0 / (1.0 - input.YP);
   //return 3.0 * pow(input.H0, 2) * input.OmegaB / (8.0 * RF_PI * RF_G * RF_mHatom * mu_H) * pow(1.0 + z, 3);
-  double baryonDensity = 2.64624E-29;
+  double baryonDensity = 2.2937E-27;
   double numberDensity = baryonDensity * (1.0 - input.YP) / RF_mHatom;
   return numberDensity * pow(1.0 + z, 3);
 }
