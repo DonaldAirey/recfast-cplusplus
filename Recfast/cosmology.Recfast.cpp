@@ -26,8 +26,8 @@ extern struct Input input;
 //========================================================================================
 double H_z(double z)
 {
-    double t = (RF_v3 + RF_v3 * z - sqrt((1 + z) * (pow(RF_v3, 2) + pow(RF_v3, 2) * z - 2 * RF_a3 * RF_v3 * RF_age + pow(RF_a3, 2) * pow(RF_age, 2)))) / (RF_a3 + RF_a3 * z);
-    return (2*RF_v3-2*RF_a3*t)/(2*RF_v3*t-RF_a3*pow(t,2));
+    double t = (RF_V + RF_V * z - sqrt((1 + z) * (pow(RF_V, 2) + pow(RF_V, 2) * z - 2 * RF_A * RF_V * RF_age + pow(RF_A, 2) * pow(RF_age, 2)))) / (RF_A + RF_A * z);
+    return (2*RF_V-2*RF_A*t)/(2*RF_V*t-RF_A*pow(t,2));
 }
 
 //========================================================================================
@@ -35,7 +35,7 @@ double H_z(double z)
 //========================================================================================
 double NH(double z) 
 {
-  double baryonDensity = 2.09126E-26;
+  double baryonDensity = 2.82211E-26;
   double numberDensity = baryonDensity * (1.0 - input.YP) / RF_mHatom;
   return numberDensity * pow(1.0 + z, 3);
 }
