@@ -36,7 +36,7 @@ double H_z(double z)
 //========================================================================================
 double NH(double z) 
 {
-  double baryonDensity = 1.06851E-27;
+  double baryonDensity = 1.06882E-27;
   double numberDensity = baryonDensity * (1.0 - input.YP) / RF_mHatom;
   return numberDensity * pow(1.0 + z, 3);
 }
