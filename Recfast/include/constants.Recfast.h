@@ -24,9 +24,9 @@ namespace RECFAST_physical_constants
     const double RF_hPlanck  = 6.62606876E-34;      // Planck constant [Js]    
     const double RF_kBoltz   = 1.3806503E-23;       // Boltzman constant [J/K] 
     const double RF_mElect   = 9.10938188E-31;      // Electron mass [kg]        
-	const double RF_age		 = 4.27121E+17;    	   // Age of the Universe [s]
-    const double RF_A        = 3.93342E-11;        // Universe Acceleration [m s-2]
-    const double RF_V        = 3.16593E+08;        // Initial Tangent Velocity
+	const double RF_age		 = 4.505E+17;    	    // Age of the Universe [s]
+    const double RF_A        = 3.933E-11;            // Universe Acceleration [m s-2]
+    const double RF_V        = 3.175E+08;           // Initial Tangent Velocity
 
     //====================================================================================================
     const double RF_amu     = 1.660538782e-24;     // gr  | NIST 2008, error 5.0e-8 
